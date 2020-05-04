@@ -239,6 +239,9 @@ Piece.prototype.collision = function (x, y, piece) {
 };
 
 // CONTROL the piece
+document.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+});
 
 document.addEventListener("keydown", (e) => CONTROL(e.keyCode));
 document.addEventListener("swiped-up", () => CONTROL(38));
