@@ -244,10 +244,22 @@ document.addEventListener("touchmove", (e) => {
 });
 
 document.addEventListener("keydown", (e) => CONTROL(e.keyCode));
-document.addEventListener("swiped-up", () => CONTROL(38));
-document.addEventListener("swiped-down", () => CONTROL(40));
-document.addEventListener("swiped-left", () => CONTROL(37));
-document.addEventListener("swiped-right", () => CONTROL(39));
+document.addEventListener("swiped-up", (e) => {
+  e.preventDefault();
+  CONTROL(38);
+});
+document.addEventListener("swiped-down", (e) => {
+  e.preventDefault();
+  CONTROL(40);
+});
+document.addEventListener("swiped-left", (e) => {
+  e.preventDefault();
+  CONTROL(37);
+});
+document.addEventListener("swiped-right", (e) => {
+  e.preventDefault();
+  CONTROL(39);
+});
 
 function CONTROL(keyCode) {
   if (keyCode === 37) {
