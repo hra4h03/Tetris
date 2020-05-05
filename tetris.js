@@ -17,7 +17,7 @@ function drawSquare(x, y, color) {
   ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
-let scale = 1.1;
+let scale = 1.4;
 function useResize(element) {
   const resize = () => {
     if (window.innerHeight < window.innerWidth) {
