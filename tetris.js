@@ -17,7 +17,7 @@ function drawSquare(x, y, color) {
   ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
-let scale = 1.6;
+let scale = 1.5;
 function useResize(element) {
   const resize = () => {
     if (window.innerHeight < window.innerWidth) {
@@ -258,9 +258,6 @@ Piece.prototype.collision = function (x, y, piece) {
 };
 
 // CONTROL the piece
-document.addEventListener("touchmove", (e) => {
-  e.preventDefault();
-});
 
 document.addEventListener("keydown", (e) => CONTROL(e.keyCode));
 document.addEventListener("swiped-up", () => {
