@@ -21,6 +21,9 @@
         }
         canvas{
             display: block;
+            position: fixed;
+            top: 10px;
+            bottom: 0;
         }
 
         .container {
@@ -36,6 +39,10 @@
         @media screen and (max-width: 1000px){
             body{
                 flex-direction: column;
+            }
+            .info {
+                position: fixed;
+                bottom: 20px;
             }
         }
     </style>
