@@ -4,35 +4,52 @@
     <meta charset="UTF-8">
     <title>Tetris Game</title>
     <style>
-        #score{
-            display: inline-block;
-        }
-        div{
-            font-size: 25px;
-            font-weight: bold;
-            font-family: monospace;
-            text-align: center;
-        }
-        canvas{
-            display: block;
-            margin:0 auto;
-        }
-        p{
-            font-size: 30px;
+        body { 
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100vw;
+            height: 100vh;    
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: darkgreen;
+            color: #fff;
+        }
+        canvas{
+            display: block;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .info {
+            flex-direction: column;
             cursor: pointer;
+        }
+        @media screen and (max-width: 1000px){
+            body{
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-<!--<div>This Game Was Created By <a target="_blank" href="https://www.youtube.com/c/codeexplained">Code Explained</a></div><br>-->
-<canvas id="tetris" width="360" height="720"></canvas>
-<p id="start">START!</p>
-<div>
-    Score : <div id="score">0</div>
-</div>
+    <div class="container">
+        <canvas id="tetris"></canvas>
+    </div>
+    <div class="info container">
+        <p id="start">START!</p>
+        <div>
+            Score : <span id="score">0</span>
+        </div>
+    </div>
 
 <script src="./swipe_detection_library.js"></script>
 <script src="tetrominoes.js"></script>

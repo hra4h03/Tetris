@@ -7,21 +7,40 @@ const ctx = cvs.getContext("2d");
 const start = document.getElementById("start");
 const scoreElement = document.getElementById("score");
 
-const ROW = 20;
-const COL = (COLUMN = 10);
-const SQ = (squareSize = 36);
 const VACANT = "WHITE"; // color of an empty square
 // draw a square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(x * SQ, y * SQ, SQ, SQ);
+  ctx.fillRect(x * SQ, y * SQ, SQ - 1.5, SQ - 1.5);
 
   ctx.strokeStyle = "BLACK";
   ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
+let scale = 1.5;
+function useResize(element) {
+  const resize = () => {
+    if (window.innerHeight < window.innerWidth) {
+      element.height = window.innerHeight * scale;
+      element.width = (window.innerHeight * scale) / 2;
+    } else {
+      element.height = window.innerWidth * scale;
+      element.width = (window.innerWidth * scale) / 2;
+    }
+  };
+  window.addEventListener("resize", () => resize(element), false);
+  return { resize };
+}
+
+const { resize: resizeCanvas } = useResize(cvs);
+resizeCanvas();
+
 // create the board
 
+const SQ = cvs.height / 20;
+
+const ROW = 20;
+const COL = (COLUMN = 10);
 let board = [];
 for (r = 0; r < ROW; r++) {
   board[r] = [];
@@ -244,20 +263,16 @@ document.addEventListener("touchmove", (e) => {
 });
 
 document.addEventListener("keydown", (e) => CONTROL(e.keyCode));
-document.addEventListener("swiped-up", (e) => {
-  e.preventDefault();
+document.addEventListener("swiped-up", () => {
   CONTROL(38);
 });
-document.addEventListener("swiped-down", (e) => {
-  e.preventDefault();
+document.addEventListener("swiped-down", () => {
   CONTROL(40);
 });
-document.addEventListener("swiped-left", (e) => {
-  e.preventDefault();
+document.addEventListener("swiped-left", () => {
   CONTROL(37);
 });
-document.addEventListener("swiped-right", (e) => {
-  e.preventDefault();
+document.addEventListener("swiped-right", () => {
   CONTROL(39);
 });
 
