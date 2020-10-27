@@ -1,19 +1,15 @@
-//classname.prototype           - x
-//requestAnimationFrame(drop)   - x
-
-//--------------------//creating 2d canvas//---------------------------------------//
 const cvs = document.getElementById("tetris");
 const ctx = cvs.getContext("2d");
 const start = document.getElementById("start");
 const scoreElement = document.getElementById("score");
 
-const VACANT = "WHITE"; // color of an empty square
+const VACANT = "rgb(198,222,221)"; // color of an empty square
 // draw a square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x * SQ, y * SQ, SQ - 1.5, SQ - 1.5);
 
-  ctx.strokeStyle = "BLACK";
+  ctx.strokeStyle = "rgb(1,22,39)";
   ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
@@ -61,15 +57,15 @@ function drawBoard() {
 drawBoard();
 
 // the pieces and their colors
-
 const PIECES = [
-  [Z, "red"],
-  [S, "green"],
-  [T, "yellow"],
-  [O, "blue"],
-  [L, "purple"],
-  [I, "cyan"],
-  [J, "orange"],
+  [Z, "rgb(229,62,62)"],
+  [S, "rgb(47,133,90)"],
+  [T, "rgb(246,224,94)"],
+  [O, "rgb(44,82,130)"],
+  [L, "rgb(184,50,128)"],
+  [I, "rgb(163,191,250)"],
+  [J, "rgb(237,137,54)"],
+  [X, "rgb(44,122,123)"],
 ];
 
 // generate random pieces
