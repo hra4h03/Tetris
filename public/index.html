@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris Game</title>
+    <style>
+        * { margin:0; padding:0; } /* to remove the top and left whitespace */
+
+        html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+
+        canvas { display:block;  margin: 0 auto ; }
+        body { 
+            display: grid;
+            grid-template-columns: repeat(2, minmax(300px, 1fr));
+            height: 100vh;    
+            padding: 0; 
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: rgb(1,22,39);
+            color: rgb(198,222,221);
+        }
+        @media screen and (max-width: 1000px){
+            body{
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(2, 1fr);
+            }
+            canvas {
+                height: 80vh;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <canvas id="tetris"></canvas>    
+    <div style="width:100%; display: flex; justify-content: center; align-items: center;">
+        <div style="text-align: center;">
+            <p style="font-size: 2rem; cursor: pointer;" id="start">START!</p>
+            <span>Score : <span id="score">0</span></span>
+        </div>
+    </div>
+
+<script src="./swipe_detection_library.js"></script>
+<script src="./long_press_library.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
