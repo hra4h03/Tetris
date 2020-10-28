@@ -7,7 +7,7 @@ const scoreElement = document.getElementById("score");
 
 const COLOR_PALLET = {
   _BG_: "rgb(1,22,39)",
-  BLACK: "rgb(0,0,0)",
+  BLACK: "rgb(28,120,192)",
   VACANT: "rgb(198,222,221)",
   RED: "rgb(229,62,62)",
   GREEN: "rgb(47,133,90)",
